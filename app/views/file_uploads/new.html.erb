@@ -1,16 +1,16 @@
 <h1>Upload New File</h1>
-<%= form_with model: @file_upload, local: true do |form| %>
+<%= form_tag file_uploads_path, multipart: true, method: :post, local: true do %>
   <div>
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+    <%= label_tag :title, "Title" %>
+    <%= text_field_tag :title %>
   </div>
   <div>
-    <%= form.label :description %>
-    <%= form.text_area :description %>
+    <%= label_tag :description, "Description" %>
+    <%= text_area_tag :description %>
   </div>
   <div>
-    <%= form.label :file %>
-    <%= form.file_field :file %>
+    <%= label_tag :file, "File" %>
+    <%= file_field_tag :file %>
   </div>
-  <%= form.submit 'Upload' %>
+  <%= submit_tag 'Upload' %>
 <% end %>

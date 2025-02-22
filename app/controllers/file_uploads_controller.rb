@@ -14,7 +14,6 @@ class FileUploadsController < ApplicationController
     end
   
     def create
-        debugger
       @file_upload = current_user.file_uploads.new(file_upload_params)
       if @file_upload.save
         redirect_to file_uploads_path, notice: 'File uploaded successfully.'
