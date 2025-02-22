@@ -11,8 +11,9 @@
       <br>
       <strong>Shareable Link:</strong> 
       <%= link_to public_file_url(file.short_code), public_file_url(file.short_code), target: "_blank" %>
-      
-      <!-- Delete File -->
+
+      <!-- Delete File (placed on the next line) -->
+      <br>
       <%= link_to 'Delete', file_upload_path(file), method: :delete, data: { turbo_method: :delete, confirm: 'Are you sure?' } %>
     </li>
   <% end %>
