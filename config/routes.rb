@@ -13,5 +13,6 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
   resources :file_uploads, only: [:index, :new, :create, :destroy]
+  get '/file/share/:short_code', to: 'file_uploads#public_access', as: 'public_file'
   root 'file_uploads#index'
 end

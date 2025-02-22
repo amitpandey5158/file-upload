@@ -1,10 +1,19 @@
 <h1>My Files</h1>
+
 <%= link_to 'Upload New File', new_file_upload_path %>
+
 <ul>
   <% @files.each do |file| %>
     <li>
-      <%= file.title %> - <%= file.description %>  
-        <%= link_to 'Delete', file_upload_path(file), method: :delete, data: { turbo_method: :delete, confirm: 'Are you sure?' } %>
+      <strong><%= file.title %></strong> - <%= file.description %>  
+
+      <!-- Display Public Shareable Link -->
+      <br>
+      <strong>Shareable Link:</strong> 
+      <%= link_to public_file_url(file.short_code), public_file_url(file.short_code), target: "_blank" %>
+      
+      <!-- Delete File -->
+      <%= link_to 'Delete', file_upload_path(file), method: :delete, data: { turbo_method: :delete, confirm: 'Are you sure?' } %>
     </li>
   <% end %>
 </ul>
