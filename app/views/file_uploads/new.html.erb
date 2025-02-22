@@ -1,0 +1,16 @@
+<h1>Upload New File</h1>
+<%= form_tag file_uploads_path, multipart: true, method: :post, local: true do %>
+  <div>
+    <%= label_tag :title, "Title" %>
+    <%= text_field_tag :title %>
+  </div>
+  <div>
+    <%= label_tag :description, "Description" %>
+    <%= text_area_tag :description %>
+  </div>
+  <div>
+    <%= label_tag :file, "File" %>
+    <%= file_field_tag :file %>
+  </div>
+  <%= submit_tag 'Upload' %>
+<% end %>
